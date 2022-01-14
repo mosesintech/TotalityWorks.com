@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import { TemplatePageProps } from "../../interfaces"
 import FlexibleContent from "../../components/FlexibleContent"
-import Layout from "../../components/layout"
+import Layout from "../../components/Layout/Layout"
 
 const ContactPageTemplate: React.FC<TemplatePageProps> = props => {
   const {
