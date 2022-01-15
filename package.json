@@ -18,10 +18,13 @@
     "gatsby-source-wordpress": "^6.5.1",
     "gatsby-theme-headless-wordpress": "^0.1.7",
     "gatsby-transformer-sharp": "^4.5.0",
+    "html-react-parser": "^1.4.5",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
+    "react-cookie-consent": "^7.2.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-slick": "^0.28.1"
   },
   "devDependencies": {
     "prettier": "^2.5.1"

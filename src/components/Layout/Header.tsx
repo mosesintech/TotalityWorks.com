@@ -1,8 +1,53 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
-const Header = ({ siteTitle }) => (
+import Nav from './Nav'
+
+const Header: React.FC = () => {
+  const useHeaderMenuData = () => {
+    const { allWpMenu, allWp } = useStaticQuery(
+      graphql`
+        query HeaderMenuQuery {
+          allWpMenu {
+            nodes {
+              id
+              locations
+              menuItems {
+                nodes {
+                  label
+                  path
+                }
+              }
+            }
+          }
+          allWp {
+            nodes {
+              generalSettings {
+                title
+              }
+            }
+          }
+        }
+      `
+    )
+    return { allWpMenu, allWp }
+  }
+
+  const { allWpMenu, allWp } = useHeaderMenuData();
+
+  const menu = allWpMenu.nodes.find(
+    // filters through all nodes, and filters those by location.
+    (menu: any) => menu.locations.find(
+      // MENU_1 = Header Menu
+      // MENU_2 = Footer Menu
+      (location:any) => location === "MENU_1"
+      )
+  );
+
+  const { nodes } = allWp;
+  const { generalSettings: { title } } = nodes[0];
+
+  return (
   <header
     style={{
       background: `rebeccapurple`,
@@ -24,19 +69,12 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {title}
         </Link>
       </h1>
+      <Nav menu={menu} />
     </div>
   </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
+)}
 
 export default Header
