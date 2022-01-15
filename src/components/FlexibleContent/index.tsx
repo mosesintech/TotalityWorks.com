@@ -1,4 +1,5 @@
 import React from "react"
+import parse from 'html-react-parser'
 
 import Banner, { BannerProps } from "./Banner"
 import CallToAction, { CTAProps } from "./CallToAction"
@@ -58,6 +59,7 @@ interface Props {
     title?: string
     uri?: string
     slug?: string
+    content?: string
   }
 }
 
@@ -113,6 +115,11 @@ const FlexibleContent: React.FC<Props> = props => {
         )
       })
   }
+  return (
+    <>
+      {data.content && (<p>{parse(data.content)}</p>)}
+    </>
+  )
 }
 
 export default FlexibleContent

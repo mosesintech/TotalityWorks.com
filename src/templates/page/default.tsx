@@ -8,7 +8,7 @@ import Layout from "../../components/Layout/Layout"
 const DefaultPageTemplate: React.FC<TemplatePageProps> = props => {
   const {
     data: {
-      page: { title, uri, slug, template },
+      page: { title, uri, slug, content, template },
     },
   } = props
 
@@ -21,6 +21,7 @@ const DefaultPageTemplate: React.FC<TemplatePageProps> = props => {
             title,
             uri,
             slug,
+            content
           }}
         />
       )}
@@ -36,6 +37,7 @@ export const FlexibleContentQuery = graphql`
       title
       slug
       uri
+      content
       template {
         ... on WpDefaultTemplate {
           ...DefaultTemplateFragment

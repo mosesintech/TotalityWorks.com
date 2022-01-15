@@ -11,6 +11,7 @@ interface TemplatePageProps extends PageProps {
       title?: string
       uri?: string
       slug?: string
+      content?: string
       template?: any
     }
   }
