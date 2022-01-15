@@ -61,17 +61,21 @@ const Header: React.FC = () => {
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {title}
-        </Link>
-      </h1>
+      {title && (
+        <>
+          <h1 style={{ margin: 0 }}>
+            <Link
+              to="/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              {title}
+            </Link>
+          </h1>
+        </>
+      )}
       <Nav menu={menu} />
     </div>
   </header>

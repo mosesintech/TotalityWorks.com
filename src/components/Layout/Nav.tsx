@@ -10,7 +10,7 @@ const Nav: React.FC<NavProps> = ({ menu }) => {
 
     return (
         <>
-        {menu.menuItems.nodes.map((item, i) => (
+        {menu && ctaLink && menu.menuItems.nodes.map((item, i) => (
             <>
                 {item.label !== ctaLink[0].label ? (
                     <>
