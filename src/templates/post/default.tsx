@@ -3,6 +3,7 @@ import { graphql, PageProps } from "gatsby"
 import parser from "html-react-parser"
 
 import Layout from '../../components/Layout/Layout'
+import Seo from "../../components/Seo"
 
 interface Props extends PageProps {
   data: {
@@ -27,6 +28,7 @@ const PostSingle: React.FC<Props> = (props) => {
 
   return (
     <Layout>
+      <Seo title={title} />
       {JSON.stringify(props, null, 2)}
     </Layout>
   )

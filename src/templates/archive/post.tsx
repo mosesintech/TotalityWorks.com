@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from '../../components/Layout/Layout'
+import Seo from "../../components/Seo"
 
 const PostArchive = (props: any) => {
   const {
@@ -17,6 +18,7 @@ const PostArchive = (props: any) => {
 
   return (
     <Layout>
+        <Seo title={title} />
         {category.map((node, i) => {
             return (
                 <div key={i}>

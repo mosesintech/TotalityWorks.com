@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import { TemplatePageProps } from "../../interfaces"
 import FlexibleContent from "../../components/FlexibleContent"
 import Layout from "../../components/Layout/Layout"
+import Seo from "../../components/Seo"
 
 const ContactPageTemplate: React.FC<TemplatePageProps> = props => {
   const {
@@ -14,6 +15,7 @@ const ContactPageTemplate: React.FC<TemplatePageProps> = props => {
 
   return (
     <Layout>
+      <Seo title={title} />
       {!!template && (
         <FlexibleContent
           modules={template.flexibleContentModules.contentModule}
